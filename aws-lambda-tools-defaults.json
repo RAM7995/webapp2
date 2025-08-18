@@ -2,7 +2,7 @@
   "profile": "dotlambda",
   "region": "ap-south-1",
   "function-name": "MyDotnetLambdaApp",
-  "function-role": "arn:aws:iam::284787697034:user/dotlambda",
+  "function-role": "arn:aws:iam::284787697034:role/lambda-exec-role",
   "configuration": "Release",
   "framework": "net6.0",
   "function-runtime": "dotnet6",
