@@ -3,9 +3,10 @@
   "region": "ap-south-1",
   "function-name": "MyDotnetLambdaApp",
   "function-role": "arn:aws:iam::284787697034:role/lambda-exec-role",
+  "function-runtime": "dotnet6",
+  "function-handler": "MyDotnetLambdaApp::MyDotnetLambdaApp.Function::FunctionHandler",
   "configuration": "Release",
   "framework": "net6.0",
-  "function-runtime": "dotnet6",
   "function-memory-size": 512,
   "function-timeout": 30
 }
