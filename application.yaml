@@ -1,18 +1,21 @@
-# application.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: webapp2
   namespace: argocd
 spec:
-  destination:
-    namespace: default
-    server: https://kubernetes.default.svc
+  project: default   # <-- REQUIRED FIELD
+
   source:
     repoURL: https://github.com/RAM7995/webapp2-k8s.git
     targetRevision: main
-    path: .
+    path: .   # root of repo
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated:       # auto-deploy on changes
+      prune: true    # remove old resources not in Git
+      selfHeal: true # fix drift automatically
