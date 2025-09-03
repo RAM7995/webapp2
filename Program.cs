@@ -1,3 +1,5 @@
+using Prometheus;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,8 +20,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// ✅ Add Prometheus middleware before Authorization
+app.UseHttpMetrics();   // collects default HTTP request metrics
+
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// ✅ Expose the /metrics endpoint
+app.MapMetrics();
 
 app.Run();
